@@ -37,7 +37,7 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *c = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class) forIndexPath:indexPath];
-    c.backgroundColor = [self randomColor];
+    c.backgroundColor = [UIColor colorWithRed:rand()%255/255.0 green:rand()%255/255.0 blue:rand()%255/255.0 alpha:1];
     if (indexPath.section == 0 && indexPath.row == 4) {
         [c addRoundedCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadii:CGSizeMake(12, 12)];
     } else {
@@ -100,15 +100,6 @@
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
 //
 //}
-
-
-- (UIColor *)randomColor
-{
-    CGFloat hue = ( arc4random() % 256 / 256.0 );
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;
-    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-}
 
 
 @end
